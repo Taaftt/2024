@@ -6,7 +6,7 @@ df = pd.read_csv("top_hiphop_artists_tracks.csv")
 
 # Crea una nueva columna con el enlace completo de Spotify
 base_url = "https://open.spotify.com/intl-es/track/"
-df['spotify_url'] = base_url + df['id']
+df['spotify_link'] = base_url + df['Track ID']
 
 # Titulo
 st.title("Mejores 100 canciones de Spotify")
@@ -17,6 +17,6 @@ st.write("Explora los mejores temas")
 st.subheader("Canciones y Enlaces a Spotify")
 for i in range(len(df)):
     song = df['name'].iloc[i]
-    link = df['spotify_url'].iloc[i]
+    link = df['spotify_link'].iloc[i]
     # Mostrar cada canción como un enlace clickeable
     st.markdown(f"[{song}]({link})", unsafe_allow_html=True)
