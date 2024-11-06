@@ -16,7 +16,7 @@ st.write("Explora los mejores temas")
 # Mostrar los enlaces en formato interactivo usando st.markdown
 st.subheader("Canciones y Enlaces a Spotify")
 for i in range(len(df)):
-    song = df['name'].iloc[i]
+    song = df['Track Name'].iloc[i]
     link = df['spotify_link'].iloc[i]
     # Mostrar cada canción como un enlace clickeable
     st.markdown(f"[{song}]({link})", unsafe_allow_html=True)
