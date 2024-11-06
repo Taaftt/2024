@@ -1,15 +1,17 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
-# Carga el archivo CSV "database_titanic.csv" en un DataFrame de pandas.
+# Carga el archivo CSV "top 100 streamed_songs.csv" en un DataFrame de pandas.
 df = pd.read_csv("top 100 streamed_songs.csv")
 
-#Titulo
-st.title("Mejores 100 canciones de spotify")
-#descripcion
-st.write("Explora los mejores temass")
+# Crea una nueva columna con el enlace completo de Spotify
+base_url = "https://open.spotify.com/intl-es/track/"
+df['spotify_url'] = base_url + df['id']
 
+# Titulo
+st.title("Mejores 100 canciones de Spotify")
+# Descripción
+st.write("Explora los mejores temas")
 
 # Mostrar los enlaces en formato interactivo usando st.markdown
 st.subheader("Canciones y Enlaces a Spotify")
@@ -17,4 +19,4 @@ for i in range(len(df)):
     song = df['name'].iloc[i]
     link = df['spotify_url'].iloc[i]
     # Mostrar cada canción como un enlace clickeable
-    st.markdown(f"[{song}]({link})")
+    st.markdown(f"[{song}]({link})", unsafe_allow_html=True)
