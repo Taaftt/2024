@@ -20,3 +20,17 @@ for i in range(len(df)):
     link = df['spotify_link'].iloc[i]
     # Mostrar cada canción como un enlace clickeable
     st.markdown(f"[{song}]({link})", unsafe_allow_html=True)
+    # Menú desplegable para seleccionar un artista
+artistas = df['Artist'].unique()
+artista_seleccionado = st.selectbox("Selecciona un artista", artistas)
+
+# Filtrar las canciones según el artista seleccionado
+df_filtrado = df[df['Artist'] == artista_seleccionado]
+
+# Mostrar los enlaces en formato interactivo usando st.markdown
+st.subheader(f"Canciones de {artista_seleccionado}")
+for i in range(len(df_filtrado)):
+    song = df_filtrado['Track Name'].iloc[i]
+    link = df_filtrado['spotify_link'].iloc[i]
+    # Mostrar cada canción como un enlace clickeable
+    st.markdown(f"[{song}]({link})", unsafe_allow_html=True)
