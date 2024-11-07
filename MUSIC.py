@@ -10,16 +10,16 @@ df['spotify_link'] = base_url + df['Track ID']
 
 # Diccionario con URLs de imágenes para el top 10, asignadas manualmente
 image_urls_top_10 = {
-    1: "https://github.com/Taaftt/2024/blob/main/images/Utopia.jfif",
-    2: "https://github.com/Taaftt/2024/blob/main/images/Vultures.png",
-    3: "https://github.com/Taaftt/2024/blob/main/images/One%20dance.jpg",
-    4: "https://github.com/Taaftt/2024/blob/main/images/Redrum.jfif",
+    1: "https://raw.githubusercontent.com/Taaftt/2024/main/images/Utopia.jfif",
+    2: "https://githubsercontent.com/Taaftt/2024/blob/main/images/Vultures.png",
+    3: "https://githubsercontent.com/Taaftt/2024/blob/main/images/One%20dance.jpg",
+    4: "https://githubsercontent.com/Taaftt/2024/blob/main/images/Redrum.jfif",
     5: "https://raw.githubusercontent.com/Taaftt/2024/main/images/Utopia.jfif",
-    6: "https://github.com/Taaftt/2024/blob/main/images/Utopia.jfif",
-    7: "https://github.com/Taaftt/2024/blob/main/images/withouth%20me.jfif",
-    8: "https://github.com/Taaftt/2024/blob/main/images/Hyv.jfif",
-    9: "https://github.com/Taaftt/2024/blob/main/images/the%20dogs.jfif",
-    10: "https://github.com/Taaftt/2024/blob/main/images/gunna.jpg"
+    6: "https://githubsercontent.com/Taaftt/2024/blob/main/images/Utopia.jfif",
+    7: "https://githubsercontent.com/Taaftt/2024/blob/main/images/withouth%20me.jfif",
+    8: "https://githubsercontent.com/Taaftt/2024/blob/main/images/Hyv.jfif",
+    9: "https://githubsercontent.com/Taaftt/2024/blob/main/images/the%20dogs.jfif",
+    10: "https://githubsercontent.com/Taaftt/2024/blob/main/images/gunna.jpg"
     
 }
 
