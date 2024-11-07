@@ -39,7 +39,7 @@ st.markdown(
 # Imagen principal
 st.image("https://raw.githubusercontent.com/Taaftt/2024/main/images/CLASSICS-Hip-Hop-FTR-Header-1-1440x1440.jpg", use_column_width=True)
 
-# Configuración de columnas para dividir el espacio en contenido principal y sección derecha
+# Configuración de columnas para dividir el espacio en contenido principal y botón derecho
 col1, col2 = st.columns([3, 1])
 
 with col1:
@@ -84,15 +84,18 @@ with col1:
             # Mostrar cada canción con el nombre del artista y un enlace clickeable
             st.markdown(f"{i+1}.- **{song}** - {artist} [Escuchar en Spotify]({link})", unsafe_allow_html=True)
 
+# Columna derecha con botón para mostrar artistas
 with col2:
-    # Sección de "Artistas con más apariciones en el top 100"
-    st.subheader("Artistas con más apariciones")
-    
-    # Filtramos el DataFrame al Top 100 y contamos las apariciones de cada artista
-    top_100_df = df_sorted.head(100)
-    artist_counts = top_100_df['Artist'].value_counts().head(10)
+    st.write(" ")
+    st.write(" ")
+    # Botón para ver los artistas con más apariciones
+    if st.button("Artistas con más apariciones"):
+        st.subheader("Artistas con más apariciones en el Top 100")
 
-    # Mostramos los artistas con más apariciones en el Top 100
-    for artist, count in artist_counts.items():
-        st.markdown(f"**{artist}**: {count} canciones")
+        # Filtramos el DataFrame al Top 100 y contamos las apariciones de cada artista
+        top_100_df = df_sorted.head(100)
+        artist_counts = top_100_df['Artist'].value_counts().head(10)
 
+        # Mostramos los artistas con más apariciones en el Top 100
+        for artist, count in artist_counts.items():
+            st.markdown(f"**{artist}**: {count} canciones")
