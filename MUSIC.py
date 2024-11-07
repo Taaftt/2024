@@ -22,15 +22,27 @@ image_urls_top_10 = {
     10: "https://raw.githubusercontent.com/Taaftt/2024/main/images/gunna.jpg"
 }
     
-# Título general de la aplicación con estilo
+# Imagen principal
+st.image("https://raw.githubusercontent.com/Taaftt/2024/main/images/Utopia.jfif", use_column_width=True)
+
+# Título grande con diseño
 st.markdown(
     """
-    <h1 style="color:#FF6347; font-size:60px; text-align:center;">
-        🎶 Top Hip Hop Songs 🎶
-    </h1>
-    """,
-    unsafe_allow_html=True)
+    <div style='text-align: center;'>
+        <h1 style='font-size: 60px; font-weight: bold; margin-bottom: 5px;'>
+            Spotify CLASSICS
+        </h1>
+        <h2 style='font-size: 35px; color: gray; margin-top: 0;'>
+            100 Greatest Hip-Hop Songs of the Streaming Era
+        </h2>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
 
+# Texto descriptivo
+st.write("MAY 20, 2024")
+st.write("Instant Vintage")
 # Selección del top
 st.subheader("Selecciona el top de canciones a mostrar")
 top_n = st.slider("Elige el número de canciones (Top N)", min_value=10, max_value=100, step=10)
