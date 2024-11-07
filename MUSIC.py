@@ -51,7 +51,7 @@ if top_n == 10:
         # Mostrar imagen y detalles de la canción si hay una imagen asociada
         if image_url:
             st.image(image_url, width=150)  # Ajusta el tamaño de la imagen
-        st.markdown(f"**{song}** - {artist} [Escuchar en Spotify]({link})", unsafe_allow_html=True)
+        st.markdown(f"{i+1}**{song}** - {artist} [Escuchar en Spotify]({link})", unsafe_allow_html=True)
 else:
     # Diseño simple sin imágenes para otros tops
     for i in range(len(df_top_n)):
