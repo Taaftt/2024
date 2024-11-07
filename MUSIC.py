@@ -22,9 +22,14 @@ image_urls_top_10 = {
     10: "https://raw.githubusercontent.com/Taaftt/2024/main/images/gunna.jpg"
 }
     
-
-# Título general de la aplicación
-st.title("Hip Hop Songs")
+# Título general de la aplicación con estilo
+st.markdown(
+    """
+    <h1 style="color:#FF6347; font-size:60px; text-align:center;">
+        🎶 Top Hip Hop Songs 🎶
+    </h1>
+    """,
+    unsafe_allow_html=True
 
 # Selección del top
 st.subheader("Selecciona el top de canciones a mostrar")
