@@ -27,10 +27,10 @@ st.markdown(
     """
     <div style='text-align: center;'>
         <h1 style='font-size: 60px; font-weight: bold; margin-bottom: 5px;'>
-            Spotify CLASSICS
+            SPOTIFY HIP-HOP
         </h1>
         <h2 style='font-size: 35px; color: gray; margin-top: 0;'>
-            100 Greatest Hip-Hop Songs of the Streaming Era
+            100 Canciones más escuchadas del hip-hop
         </h2>
     </div>
     """, 
@@ -38,9 +38,6 @@ st.markdown(
 
 # Imagen principal
 st.image("https://raw.githubusercontent.com/Taaftt/2024/main/images/CLASSICS-Hip-Hop-FTR-Header-1-1440x1440.jpg", use_column_width=True)
-
-
-
 
 # Selección del top
 st.subheader("Selecciona el top de canciones a mostrar")
@@ -58,16 +55,21 @@ st.subheader(f"Top {top_n} canciones de Hip Hop")
 if top_n == 10:
     for i in range(len(df_top_n)):
         song = df_top_n['Track Name'].iloc[i]
-        link = df_top_n['spotify_link'].iloc[i]
         artist = df_top_n['Artist'].iloc[i]
+        link = df_top_n['spotify_link'].iloc[i]
         
         # Obtener la imagen correspondiente al top, si existe
         image_url = image_urls_top_10.get(i + 1)  # i + 1 representa la posición en el top
 
-        # Mostrar imagen y detalles de la canción si hay una imagen asociada
-        if image_url:
-            st.image(image_url, width=150)  # Ajusta el tamaño de la imagen
-        st.markdown(f"{i+1}.- **{song}** - {artist} [Escuchar en Spotify]({link})", unsafe_allow_html=True)
+        # Diseño de tarjeta
+        st.markdown(f"""
+            <div style="border: 2px solid #1DB954; padding: 20px; margin: 10px 0; border-radius: 10px; text-align: center; background-color: #f7f7f7;">
+                <img src="{image_url}" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 15px;">
+                <h3 style="margin: 0; font-size: 24px;">{i+1}. {song}</h3>
+                <p style="color: #333; font-size: 18px; margin: 5px 0;">{artist}</p>
+                <a href="{link}" style="color: #1DB954; font-weight: bold; font-size: 16px; text-decoration: none;">Escuchar en Spotify</a>
+            </div>
+        """, unsafe_allow_html=True)
 else:
     # Diseño simple sin imágenes para otros tops
     for i in range(len(df_top_n)):
@@ -77,3 +79,4 @@ else:
         
         # Mostrar cada canción con el nombre del artista y un enlace clickeable
         st.markdown(f"{i+1}.- **{song}** - {artist} [Escuchar en Spotify]({link})", unsafe_allow_html=True)
+
