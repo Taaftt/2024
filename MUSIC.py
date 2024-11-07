@@ -4,11 +4,11 @@ import pandas as pd
 # Carga el archivo CSV "top_hiphop_artists_tracks.csv" en un DataFrame de pandas.
 df = pd.read_csv("top_hiphop_artists_tracks.csv")
 
-# Crea una nueva columna con el enlace completo de Spotify
+#enlace
 base_url = "https://open.spotify.com/intl-es/track/"
 df['spotify_link'] = base_url + df['Track ID']
 
-# Diccionario con URLs de imágenes para el top 10, asignadas manualmente
+#imagenes
 image_urls_top_10 = {
     1: "https://raw.githubusercontent.com/Taaftt/2024/main/images/Utopia.jfif",
     2: "https://raw.githubusercontent.com/Taaftt/2024/main/images/Vultures.png",
@@ -47,25 +47,25 @@ st.markdown(
     """, 
     unsafe_allow_html=True)
 
-# Imagen principal
+#img
 st.image("https://raw.githubusercontent.com/Taaftt/2024/main/images/CLASSICS-Hip-Hop-FTR-Header-1-1440x1440.jpg", use_column_width=True)
 
-# Botón para alternar entre vistas
+#boton
 if st.session_state['show_artists']:
     # Mostrar la sección de "Artistas con más apariciones"
     st.subheader("Top 3 Artistas con más apariciones en el Top 100")
 
-    # Contar las apariciones de cada artista en el Top 100
+    # Aparicicones
     df_sorted = df.sort_values(by="Popularity", ascending=False)
     top_100_df = df_sorted.head(100)
     artist_counts = top_100_df['Artist'].value_counts().head(3)
 
-    # Mostrar los artistas con más apariciones junto con sus imágenes
+    # Mostrar los artistas con img
     for artist, count in artist_counts.items():
         image_url = top_3_artist_images.get(artist, "")
         st.image(image_url, width=150, caption=f"{artist}: {count} canciones")
 
-    # Sección de descripción de carrera para el top 3 artistas
+    #desc
     st.subheader("Descripción de las Carreras de los Top 3 Artistas")
     st.markdown("""
         - **Drake**: Rapero canadiense conocido por su habilidad para mezclar rap y R&B. Con éxitos como "Hotline Bling" y "God's Plan", ha logrado romper récords y consolidarse como uno de los artistas más importantes en el género.
@@ -73,9 +73,7 @@ if st.session_state['show_artists']:
         - **Eminem**: Conocido como "Slim Shady", Eminem es uno de los raperos más influyentes de todos los tiempos. Su habilidad lírica y sus temas profundos en canciones como "Lose Yourself" y "Stan" le han ganado numerosos premios y una gran base de fans mundialmente.
     """)
 
-    # Botón para volver al Top de canciones
-    if st.button("Volver al Top de Canciones"):
-        st.session_state['show_artists'] = False
+   
 
 else:
     # Selección del top de canciones a mostrar
@@ -117,16 +115,7 @@ else:
             # Mostrar cada canción con el nombre del artista y un enlace clickeable
             st.markdown(f"{i+1}.- **{song}** - {artist} [Escuchar en Spotify]({link})", unsafe_allow_html=True)
 
-    # Botón para cambiar a la vista de "Artistas con más apariciones"
-    st.markdown(
-        """
-        <div style="text-align: right; margin-top: 20px;">
-            <button style="background-color: #1DB954; color: white; padding: 10px 20px; font-size: 18px; border-radius: 5px; cursor: pointer;">
-                Artistas con más apariciones
-            </button>
-        </div>
-        """,
-        unsafe_allow_html=True
+ 
     )
     if st.button("Artistas con más apariciones"):
         st.session_state['show_artists'] = True
