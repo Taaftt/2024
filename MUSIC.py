@@ -21,9 +21,6 @@ image_urls_top_10 = {
     9: "https://raw.githubusercontent.com/Taaftt/2024/main/images/the%20dogs.jfif",
     10: "https://raw.githubusercontent.com/Taaftt/2024/main/images/gunna.jpg"
 }
-    
-# Imagen principal
-st.image("https://raw.githubusercontent.com/Taaftt/2024/main/images/CLASSICS-Hip-Hop-FTR-Header-1-1440x1440.jpg", use_column_width=True)
 
 # Título grande con diseño
 st.markdown(
@@ -37,12 +34,14 @@ st.markdown(
         </h2>
     </div>
     """, 
-    unsafe_allow_html=True
-)
+    unsafe_allow_html=True)
 
-# Texto descriptivo
-st.write("MAY 20, 2024")
-st.write("Instant Vintage")
+# Imagen principal
+st.image("https://raw.githubusercontent.com/Taaftt/2024/main/images/CLASSICS-Hip-Hop-FTR-Header-1-1440x1440.jpg", use_column_width=True)
+
+
+
+
 # Selección del top
 st.subheader("Selecciona el top de canciones a mostrar")
 top_n = st.slider("Elige el número de canciones (Top N)", min_value=10, max_value=100, step=10)
