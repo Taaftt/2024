@@ -12,14 +12,14 @@ df['spotify_link'] = base_url + df['Track ID']
 image_urls_top_10 = {
     1: "https://raw.githubusercontent.com/Taaftt/2024/main/images/Utopia.jfif",
     2: "https://raw.githubsercontent.com/Taaftt/2024/blob/main/images/Vultures.png",
-    3: "https://rawgithubsercontent.com/Taaftt/2024/blob/main/images/One%20dance.jpg",
-    4: "https://rawgithubsercontent.com/Taaftt/2024/blob/main/images/Redrum.jfif",
+    3: "https://raw.githubsercontent.com/Taaftt/2024/blob/main/images/One%20dance.jpg",
+    4: "https://raw.githubsercontent.com/Taaftt/2024/blob/main/images/Redrum.jfif",
     5: "https://raw.githubusercontent.com/Taaftt/2024/main/images/Utopia.jfif",
-    6: "https://rawgithubsercontent.com/Taaftt/2024/blob/main/images/Utopia.jfif",
-    7: "https://rawgithubsercontent.com/Taaftt/2024/blob/main/images/withouth%20me.jfif",
-    8: "https://rawgithubsercontent.com/Taaftt/2024/blob/main/images/Hyv.jfif",
-    9: "https://rawgithubsercontent.com/Taaftt/2024/blob/main/images/the%20dogs.jfif",
-    10: "https://rawgithubsercontent.com/Taaftt/2024/blob/main/images/gunna.jpg"
+    6: "https://raw.githubsercontent.com/Taaftt/2024/blob/main/images/Utopia.jfif",
+    7: "https://raw.githubsercontent.com/Taaftt/2024/blob/main/images/withouth%20me.jfif",
+    8: "https://raw.githubsercontent.com/Taaftt/2024/blob/main/images/Hyv.jfif",
+    9: "https://raw.githubsercontent.com/Taaftt/2024/blob/main/images/the%20dogs.jfif",
+    10: "https://raw.githubsercontent.com/Taaftt/2024/blob/main/images/gunna.jpg"
     
 }
 
