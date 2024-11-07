@@ -22,6 +22,10 @@ image_urls_top_10 = {
     10: "https://raw.githubusercontent.com/Taaftt/2024/main/images/gunna.jpg"
 }
 
+# Estado para manejar la vista actual
+if 'show_artists' not in st.session_state:
+    st.session_state['show_artists'] = False
+
 # Título grande con diseño
 st.markdown(
     """
@@ -39,21 +43,34 @@ st.markdown(
 # Imagen principal
 st.image("https://raw.githubusercontent.com/Taaftt/2024/main/images/CLASSICS-Hip-Hop-FTR-Header-1-1440x1440.jpg", use_column_width=True)
 
-# Configuración de columnas para dividir el espacio en contenido principal y botón derecho
-col1, col2 = st.columns([3, 1])
+# Botón para alternar entre vistas
+if st.session_state['show_artists']:
+    # Mostrar la sección de "Artistas con más apariciones"
+    st.subheader("Artistas con más apariciones en el Top 100")
 
-with col1:
-    # Selección del top
+    # Contar las apariciones de cada artista en el Top 100
+    df_sorted = df.sort_values(by="Popularity", ascending=False)
+    top_100_df = df_sorted.head(100)
+    artist_counts = top_100_df['Artist'].value_counts().head(10)
+
+    # Mostrar los artistas con más apariciones
+    for artist, count in artist_counts.items():
+        st.markdown(f"**{artist}**: {count} canciones")
+
+    # Botón para volver al Top de canciones
+    if st.button("Volver al Top de Canciones"):
+        st.session_state['show_artists'] = False
+
+else:
+    # Selección del top de canciones a mostrar
     st.subheader("Selecciona el top de canciones a mostrar")
     top_n = st.slider("Elige el número de canciones (Top N)", min_value=10, max_value=100, step=10)
 
-    # Ordena las canciones por la columna de popularidad
+    # Ordena las canciones por la columna de popularidad y filtra para obtener el top seleccionado
     df_sorted = df.sort_values(by="Popularity", ascending=False)
-
-    # Filtra el DataFrame para obtener solo el top seleccionado
     df_top_n = df_sorted.head(top_n)
 
-    # Mostrar las canciones con un diseño específico para el top 10
+    # Mostrar el top de canciones
     st.subheader(f"Top {top_n} canciones de Hip Hop")
 
     if top_n == 10:
@@ -61,9 +78,9 @@ with col1:
             song = df_top_n['Track Name'].iloc[i]
             artist = df_top_n['Artist'].iloc[i]
             link = df_top_n['spotify_link'].iloc[i]
-            
+
             # Obtener la imagen correspondiente al top, si existe
-            image_url = image_urls_top_10.get(i + 1)  # i + 1 representa la posición en el top
+            image_url = image_urls_top_10.get(i + 1)
 
             # Diseño de tarjeta
             st.markdown(f"""
@@ -84,18 +101,7 @@ with col1:
             # Mostrar cada canción con el nombre del artista y un enlace clickeable
             st.markdown(f"{i+1}.- **{song}** - {artist} [Escuchar en Spotify]({link})", unsafe_allow_html=True)
 
-# Columna derecha con botón para mostrar artistas
-with col2:
-    st.write(" ")
-    st.write(" ")
-    # Botón para ver los artistas con más apariciones
+    # Botón para cambiar a la vista de "Artistas con más apariciones"
     if st.button("Artistas con más apariciones"):
-        st.subheader("Artistas con más apariciones en el Top 100")
+        st.session_state['show_artists'] = True
 
-        # Filtramos el DataFrame al Top 100 y contamos las apariciones de cada artista
-        top_100_df = df_sorted.head(100)
-        artist_counts = top_100_df['Artist'].value_counts().head(10)
-
-        # Mostramos los artistas con más apariciones en el Top 100
-        for artist, count in artist_counts.items():
-            st.markdown(f"**{artist}**: {count} canciones")
