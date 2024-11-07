@@ -60,4 +60,4 @@ else:
         artist = df_top_n['Artist'].iloc[i]
         
         # Mostrar cada canción con el nombre del artista y un enlace clickeable
-        st.markdown(f"**{song}** - {artist} [Escuchar en Spotify]({link})", unsafe_allow_html=True)
+        st.markdown(f"{i+1}.- **{song}** - {artist} [Escuchar en Spotify]({link})", unsafe_allow_html=True)
