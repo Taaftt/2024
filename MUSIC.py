@@ -29,7 +29,7 @@ st.markdown(
         🎶 Top Hip Hop Songs 🎶
     </h1>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True)
 
 # Selección del top
 st.subheader("Selecciona el top de canciones a mostrar")
