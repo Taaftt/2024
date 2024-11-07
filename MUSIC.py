@@ -23,7 +23,7 @@ image_urls_top_10 = {
 }
     
 # Imagen principal
-st.image("https://raw.githubusercontent.com/Taaftt/2024/main/images/Utopia.jfif", use_column_width=True)
+st.image("https://raw.githubusercontent.com/Taaftt/2024/main/images/CLASSICS-Hip-Hop-FTR-Header-1-1440x1440.jpg", use_column_width=True)
 
 # Título grande con diseño
 st.markdown(
